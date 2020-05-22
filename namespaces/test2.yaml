@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  labels
+  labels:
     name: test2
     istio-injection: enabled
   name: test2
