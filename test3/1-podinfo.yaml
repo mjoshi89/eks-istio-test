@@ -1,8 +1,8 @@
-apiVersion: apps1/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-podinfo
-  namespace: apps1
+  namespace: test3
   labels:
     app: frontend-podinfo
 spec:
@@ -19,7 +19,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: apps1
+        sidecar.istio.io/inject: true
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -39,7 +39,7 @@ spec:
           - name: PODINFO_UI_COLOR
             value: #34577c
           - name: PODINFO_BACKEND_URL
-            value: http://backend-podinfo.apps1.svc.cluster.local:9898/echo
+            value: http://backend-podinfo.apps.svc.cluster.local:9898/echo
           ports:
             - name: http
               containerPort: 9898
@@ -80,11 +80,11 @@ spec:
       - name: data
         emptyDir: {}
 ---
-apiVersion: apps1/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-podinfo-v1
-  namespace: apps1
+  namespace: test3
   labels:
     app: backend-podinfo-v1
 spec:
@@ -101,7 +101,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: apps1
+        sidecar.istio.io/inject: true
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -160,11 +160,11 @@ spec:
       - name: data
         emptyDir: {}
 ---
-apiVersion: apps1/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-podinfo-v2
-  namespace: apps1
+  namespace: test3
   labels:
     app: backend-podinfo-v2
 spec:
@@ -181,7 +181,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: apps1
+        sidecar.istio.io/inject: true
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -244,7 +244,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-podinfo
-  namespace: apps1
+  namespace: test3
   labels:
     app: frontend-podinfo
 spec:
@@ -264,7 +264,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-podinfo-v1
-  namespace: apps1
+  namespace: test3
   labels:
     app: backend-podinfo
     version: v1
@@ -286,7 +286,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-podinfo-v2
-  namespace: apps1
+  namespace: test3
   labels:
     app: backend-podinfo
     version: v2
