@@ -19,7 +19,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: apps
+        sidecar.istio.io/inject: true
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -101,7 +101,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: apps
+        sidecar.istio.io/inject: true
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -181,7 +181,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: apps
+        sidecar.istio.io/inject: true
     spec:
       terminationGracePeriodSeconds: 30
       containers:
