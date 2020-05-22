@@ -19,7 +19,6 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: test2
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -101,7 +100,6 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: test2
     spec:
       terminationGracePeriodSeconds: 30
       containers:
@@ -181,7 +179,6 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
-        appmesh.k8s.aws/mesh: test2
     spec:
       terminationGracePeriodSeconds: 30
       containers:
