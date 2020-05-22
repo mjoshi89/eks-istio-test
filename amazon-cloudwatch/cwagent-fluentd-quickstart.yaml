@@ -59,7 +59,7 @@ data:
       "logs": {
         "metrics_collected": {
           "kubernetes": {
-            "cluster_name": "gitopsworkshop",
+            "cluster_name": "gitopsworkshop1",
             "metrics_collection_interval": 60
           }
         },
@@ -165,7 +165,7 @@ spec:
 # need to replace the placeholders gitopsworkshop and us-west-2
 apiVersion: v1
 data:
-  cluster.name: gitopsworkshop
+  cluster.name: gitopsworkshop1
   logs.region: us-west-2
 kind: ConfigMap
 metadata:
