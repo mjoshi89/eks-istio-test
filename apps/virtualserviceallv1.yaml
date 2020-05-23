@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: frontend-podinfo
+spec:
+  hosts:
+  - frontend-podinfo
+  http:
+  - route:
+    - destination:
+        host: frontend-podinfo
+        subset: v1
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: backend-podinfo
+spec:
+  hosts:
+  - backend-podinfo
+  http:
+  - route:
+    - destination:
+        host: backend-podinfo
+        subset: v1
